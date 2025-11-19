@@ -1,0 +1,21 @@
+# Site settings
+title: Ray Park - Backend & Systems Engineer
+description: Results-driven backend and systems engineer with extensive experience in database-driven application development
+author: Ray Park
+email: sparkiss@gmail.com
+url: "https://sparkiss.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
