@@ -23,95 +23,9 @@ function initThemeToggle() {
     });
 }
 
-// Skills data with weights (1-5, where 5 is most prominent)
-const skills = [
-    // Databases - High weight
-    { name: 'Oracle', weight: 5, category: 'database' },
-    { name: 'MySQL', weight: 5, category: 'database' },
-    { name: 'PostgreSQL', weight: 4, category: 'database' },
-    { name: 'MS SQL Server', weight: 4, category: 'database' },
-    { name: 'MongoDB', weight: 4, category: 'database' },
-    { name: 'Firebird', weight: 3, category: 'database' },
-    { name: 'SQLite', weight: 3, category: 'database' },
-
-    // Programming Languages
-    { name: 'PHP', weight: 5, category: 'language' },
-    { name: 'Rust', weight: 5, category: 'language' },
-    { name: 'C++', weight: 4, category: 'language' },
-    { name: 'Python', weight: 4, category: 'language' },
-    { name: 'Java', weight: 4, category: 'language' },
-    { name: 'Go', weight: 4, category: 'language' },
-    { name: 'C', weight: 3, category: 'language' },
-    { name: 'C#', weight: 3, category: 'language' },
-
-    // Frameworks
-    { name: 'Yii Framework', weight: 5, category: 'framework' },
-    { name: 'Symfony', weight: 4, category: 'framework' },
-    { name: 'Flask', weight: 3, category: 'framework' },
-    { name: 'Actix', weight: 4, category: 'framework' },
-    { name: 'Axum', weight: 4, category: 'framework' },
-    { name: 'Qt', weight: 4, category: 'framework' },
-    { name: '.NET', weight: 3, category: 'framework' },
-
-    // Architecture & Patterns
-    { name: 'Microservices', weight: 5, category: 'architecture' },
-    { name: 'REST API', weight: 5, category: 'architecture' },
-    { name: 'DDD', weight: 4, category: 'architecture' },
-    { name: 'TDD', weight: 4, category: 'architecture' },
-    { name: 'Event-Driven', weight: 4, category: 'architecture' },
-
-    // Search & Indexing
-    { name: 'Elasticsearch', weight: 5, category: 'search' },
-    { name: 'Apache Solr', weight: 4, category: 'search' },
-
-    // Message Queues
-    { name: 'RabbitMQ', weight: 5, category: 'messaging' },
-    { name: 'Kafka', weight: 5, category: 'messaging' },
-    { name: 'Redpanda', weight: 4, category: 'messaging' },
-    { name: 'Beanstalkd', weight: 4, category: 'messaging' },
-
-    // Caching
-    { name: 'Redis', weight: 5, category: 'caching' },
-    { name: 'Memcached', weight: 3, category: 'caching' },
-
-    // DevOps & Tools
-    { name: 'Docker', weight: 5, category: 'devops' },
-    { name: 'GitLab CI', weight: 4, category: 'devops' },
-    { name: 'Git', weight: 5, category: 'devops' },
-    { name: 'Linux', weight: 5, category: 'devops' },
-    { name: 'Nginx', weight: 4, category: 'devops' },
-    { name: 'Apache', weight: 4, category: 'devops' },
-
-    // Development Tools
-    { name: 'Visual Studio', weight: 4, category: 'tools' },
-    { name: 'NeoVim', weight: 4, category: 'tools' },
-    { name: 'Qt Creator', weight: 3, category: 'tools' },
-
-    // Specialized
-    { name: 'VoIP', weight: 3, category: 'specialized' },
-    { name: 'POS Systems', weight: 3, category: 'specialized' },
-    { name: 'Langfuse', weight: 3, category: 'specialized' },
-
-    // Platforms
-    { name: 'Android', weight: 3, category: 'platform' },
-    { name: 'iOS', weight: 3, category: 'platform' },
-    { name: 'Windows', weight: 4, category: 'platform' },
-];
-
-// Color palette for different categories
-const categoryColors = {
-    database: '#3b82f6',      // Blue
-    language: '#8b5cf6',      // Purple
-    framework: '#10b981',     // Green
-    architecture: '#f59e0b',  // Orange
-    search: '#ef4444',        // Red
-    messaging: '#ec4899',     // Pink
-    caching: '#14b8a6',       // Teal
-    devops: '#6366f1',        // Indigo
-    tools: '#84cc16',         // Lime
-    specialized: '#f97316',   // Orange-red
-    platform: '#06b6d4',      // Cyan
-};
+// Skills data loaded from Jekyll _data files (see _data/skills.json)
+const skills = window.siteData?.skills || [];
+const categoryColors = window.siteData?.categoryColors || {};
 
 // Shuffle array function for random positioning
 function shuffleArray(array) {
@@ -126,7 +40,7 @@ function shuffleArray(array) {
 // Create tag cloud
 function createTagCloud() {
     const tagCloudElement = document.getElementById('tagCloud');
-    if (!tagCloudElement) return;
+    if (!tagCloudElement || !skills.length) return;
 
     // Shuffle skills for visual variety
     const shuffledSkills = shuffleArray(skills);

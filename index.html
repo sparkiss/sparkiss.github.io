@@ -273,6 +273,13 @@ layout: default
         </div>
     </footer>
 
+    <!-- Expose Jekyll data to JavaScript -->
+    <script>
+        window.siteData = {
+            skills: {{ site.data.skills.skills | jsonify }},
+            categoryColors: {{ site.data.skills.categoryColors | jsonify }}
+        };
+    </script>
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

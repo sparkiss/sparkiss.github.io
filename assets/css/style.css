@@ -1,3 +1,27 @@
+/* ==========================================================================
+   TABLE OF CONTENTS
+   ==========================================================================
+   1. Reset & CSS Variables
+   2. Layout & Container
+   3. Hero Section
+   4. Theme Toggle
+   5. Section Styles
+   6. About Section
+   7. Skills & Tags
+   8. Core Strengths
+   9. Timeline (Experience)
+   10. Education
+   11. Home Lab
+   12. Footer
+   13. Media Queries (Responsive)
+   14. Animations
+   15. Print Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   1. RESET & CSS VARIABLES
+   ========================================================================== */
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -5,12 +29,14 @@
     box-sizing: border-box;
 }
 
+/* Bun-inspired color theme: Cyan + Magenta with dark aesthetic */
 :root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --accent-color: #3b82f6;
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
+    --primary-color: #00a6e1;
+    --secondary-color: #0090c5;
+    --accent-color: #e600e5;
+    --accent-secondary: #f89b4b;
+    --text-primary: #111827;
+    --text-secondary: #4f5666;
     --bg-light: #f9fafb;
     --bg-white: #ffffff;
     --border-color: #e5e7eb;
@@ -18,25 +44,26 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --hero-gradient-start: #667eea;
-    --hero-gradient-end: #764ba2;
+    --hero-gradient-start: #00a6e1;
+    --hero-gradient-end: #e600e5;
 }
 
 [data-theme="dark"] {
-    --primary-color: #60a5fa;
-    --secondary-color: #3b82f6;
-    --accent-color: #93c5fd;
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --bg-light: #111827;
-    --bg-white: #1f2937;
-    --border-color: #374151;
+    --primary-color: #00a6e1;
+    --secondary-color: #0090c5;
+    --accent-color: #e600e5;
+    --accent-secondary: #f89b4b;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --bg-light: #14151a;
+    --bg-white: #282a36;
+    --border-color: #3b3f4b;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-    --hero-gradient-start: #4338ca;
-    --hero-gradient-end: #6b21a8;
+    --hero-gradient-start: #00a6e1;
+    --hero-gradient-end: #e600e5;
 }
 
 body {
@@ -47,13 +74,19 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ==========================================================================
+   2. LAYOUT & CONTAINER
+   ========================================================================== */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* Hero Section */
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
 .hero {
     background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%);
     color: white;
@@ -146,7 +179,9 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Theme Toggle Button */
+/* ==========================================================================
+   4. THEME TOGGLE
+   ========================================================================== */
 .theme-toggle {
     position: fixed;
     top: 2rem;
@@ -195,7 +230,9 @@ body {
     display: none;
 }
 
-/* Section Styles */
+/* ==========================================================================
+   5. SECTION STYLES
+   ========================================================================== */
 section {
     padding: 4rem 0;
 }
@@ -219,7 +256,9 @@ section {
     border-radius: 2px;
 }
 
-/* About Section */
+/* ==========================================================================
+   6. ABOUT SECTION
+   ========================================================================== */
 .about {
     background: var(--bg-white);
 }
@@ -249,7 +288,9 @@ section {
     color: var(--text-primary);
 }
 
-/* Skills Tag Cloud */
+/* ==========================================================================
+   7. SKILLS & TAGS
+   ========================================================================== */
 .skills {
     background: var(--bg-light);
 }
@@ -288,7 +329,9 @@ section {
 .tag.size-4 { font-size: 1.25rem; opacity: 0.95; }
 .tag.size-5 { font-size: 1.5rem; opacity: 1; font-weight: 600; }
 
-/* Core Strengths */
+/* ==========================================================================
+   8. CORE STRENGTHS
+   ========================================================================== */
 .strengths {
     background: var(--bg-white);
 }
@@ -331,7 +374,9 @@ section {
     line-height: 1.6;
 }
 
-/* Experience Timeline */
+/* ==========================================================================
+   9. TIMELINE (EXPERIENCE)
+   ========================================================================== */
 .experience {
     background: var(--bg-light);
 }
@@ -423,7 +468,9 @@ section {
     font-weight: bold;
 }
 
-/* Education */
+/* ==========================================================================
+   10. EDUCATION
+   ========================================================================== */
 .education {
     background: var(--bg-white);
 }
@@ -483,7 +530,9 @@ section {
     font-style: italic;
 }
 
-/* Home Lab */
+/* ==========================================================================
+   11. HOME LAB
+   ========================================================================== */
 .homelab {
     background: var(--bg-light);
 }
@@ -534,7 +583,9 @@ section {
     font-size: 0.9rem;
 }
 
-/* Footer */
+/* ==========================================================================
+   12. FOOTER
+   ========================================================================== */
 .footer {
     background: var(--text-primary);
     color: white;
@@ -547,7 +598,9 @@ section {
     opacity: 0.8;
 }
 
-/* Responsive Design */
+/* ==========================================================================
+   13. MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
 @media (max-width: 768px) {
     .theme-toggle {
         top: 1rem;
@@ -604,7 +657,9 @@ section {
     }
 }
 
-/* Animations */
+/* ==========================================================================
+   14. ANIMATIONS
+   ========================================================================== */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -623,7 +678,9 @@ section {
     animation: fadeIn 0.6s ease-out forwards;
 }
 
-/* Print Styles */
+/* ==========================================================================
+   15. PRINT STYLES
+   ========================================================================== */
 @media print {
     .hero {
         background: white;
