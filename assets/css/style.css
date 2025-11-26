@@ -180,7 +180,7 @@ body {
 }
 
 /* ==========================================================================
-   4. THEME TOGGLE
+   4. THEME TOGGLE & LANGUAGE SWITCHER
    ========================================================================== */
 .theme-toggle {
     position: fixed;
@@ -228,6 +228,39 @@ body {
 
 [data-theme="dark"] .theme-toggle .moon-icon {
     display: none;
+}
+
+/* Language Switcher */
+.lang-switcher {
+    position: fixed;
+    top: 2rem;
+    right: 5rem;
+    display: flex;
+    gap: 0.25rem;
+    z-index: 1000;
+}
+
+.lang-switcher a {
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.lang-switcher a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.lang-switcher a.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 /* ==========================================================================
@@ -587,10 +620,14 @@ section {
    12. FOOTER
    ========================================================================== */
 .footer {
-    background: var(--text-primary);
+    background: #111827;
     color: white;
     text-align: center;
     padding: 2rem 0;
+}
+
+[data-theme="dark"] .footer {
+    background: #0a0b0d;
 }
 
 .footer p {
@@ -612,6 +649,16 @@ section {
     .theme-toggle svg {
         width: 20px;
         height: 20px;
+    }
+
+    .lang-switcher {
+        top: 1rem;
+        right: 3.5rem;
+    }
+
+    .lang-switcher a {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
     }
 
     .profile-logo {
